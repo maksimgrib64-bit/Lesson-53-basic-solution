@@ -1,18 +1,11 @@
 #include "logic.h"
-int main() {
-	int matrix[DEFAULT_SIZE][DEFAULT_SIZE]{};
-	int row, column;
+int sum1(int matrix[DEFAULT_SIZE][DEFAULT_SIZE], int row, int column) {
+	int s = 0;
+	for (int i = 0; i < row - 1; i++) {
+		for (int j = i+1; j < column; j++) {
+			s += matrix[i][j];
+		}
+	}
 
-	do {
-		system("cls");
-		print("Input size of matrix(n*m):");
-		cin >> row >> column;
-	} while (row <= 0 or column <= 0);
-
-	init(matrix, row, column, -9, 9);
-	print("Matrix:\n");
-	print(convert(matrix, row, column));
-
-
-	return 0;
+	return s;
 }
